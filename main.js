@@ -1,9 +1,8 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
-const { Menu } = require('electron');
 
-const {app, BrowserWindow} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 process.env.MODE_ENV = 'development';
 
@@ -44,7 +43,7 @@ app.on('ready', () => {
         });
 
         mainWindow.loadURL(url.format({
-            pathname: path.join(__dirname, "./templates/main.html")
+            pathname: path.join(__dirname, "./templates/index.html")
         }));
 
         // Setting mainWindow properties
@@ -58,7 +57,7 @@ app.on('ready', () => {
 
         loadingWindow.close(); // This line must be the last line in the timeout function or every window will be closed (think why, future Ammar might forget)
 
-    }, 3000)
+    }, 1000)
     
     // Replace the default menu tabs on the top
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
