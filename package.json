@@ -1,0 +1,22 @@
+{
+  "name": "electron-algorithms-desktop-app",
+  "version": "1.0.0",
+  "description": "Dynamic Programming Demonstration",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fanoflix/Electron-Algorithms-Desktop-App.git"
+  },
+  "author": "Fanoflix Ammar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fanoflix/Electron-Algorithms-Desktop-App/issues"
+  },
+  "homepage": "https://github.com/Fanoflix/Electron-Algorithms-Desktop-App#readme",
+  "devDependencies": {
+    "electron": "^11.1.1"
+  }
+}

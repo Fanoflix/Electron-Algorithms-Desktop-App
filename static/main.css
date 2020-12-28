@@ -1,0 +1,69 @@
+
+    body {
+        font-family: 'Baloo Da 2', cursive;
+        background-color: rgb(21, 21, 21);
+    }
+
+    /* CUSTOM SCROLL BAR (Not in use here) */
+    .scroll_enabled {
+        overflow: scroll;
+        height: 100%; /* define your custom height */
+    }
+    
+    .scroll_enabled::-webkit-scrollbar {
+        width: 5px;
+        
+    }
+    .scroll_enabled::-webkit-scrollbar-corner {
+        background: rgba(255, 0, 0, 0);
+    }
+    .scroll_enabled::-webkit-scrollbar-thumb {
+        background-color: rgb(111, 111, 111);
+        box-shadow: 0px 0px 2px rgb(150, 150, 150);
+        border-radius: 0px;
+        border: 1px solid rgba(254, 254, 254, 0);
+        background-clip: content-box;
+        min-width: 32px;
+        min-height: 32px;
+    }
+    .scroll_enabled::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    /* -- SCROLL BAR ENDS --*/
+
+    .matrix {
+        display: grid;
+        grid-template-columns: repeat(4, 0.5fr);
+        grid-auto-rows: 250px;
+        grid-column-gap: 20px;
+        grid-row-gap: 0px;
+        justify-items: center;
+        align-items: center;
+    }
+    .box {
+        display: flex;
+        color: rgb(255, 255, 255);
+        box-shadow: 5px 5px 10px  rgb(0, 0, 0);
+        background-image: url("../assets/box-background.png");
+        background-position: center;
+        background-size:cover;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 18px;
+        text-shadow: 0px 0px 10px rgb(255, 255, 255);
+        height: 200px;
+        width: 200px;
+        justify-items: center;
+        align-items: center;
+        transform: scale(1);
+        border: 1px solid black;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .box:hover{
+        transform: scale(1.05);
+        transition: all 0.1s ease-in-out;
+        border: 1px solid rgb(79, 79, 79);
+    }
