@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js" integrity="sha512-E378bwaeZf1nwXeJGIwTB58A5gPt5jFU3u6aTGja4ZdRFJeo/N/REKnBgNZOZlH6JdnOPO98vg2AnSGaNfCMFQ==" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <!-- Anime JS here Loading screen-->
-        <h2> LOADING </h2>
-        
+        <div class="circle"></div>
     </div>
 </body>
 
+<script>
+    
+    anime({
+        targets: '.circle',
+        rotate: 70,
+        duration: 1000,
+        direction: 'alternate',
+        loop: true
+      });
+</script>
 
 <style>
     html, body {
@@ -21,25 +32,27 @@
 
     body {
         transform: scale(0.9); 
-        border: 2px solid rgba(0, 0, 0,1);
-        border-radius: 15px;
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 40px;
     }
 
     .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
         height:100%;
         user-select: none;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-items: center;
+        background-color: rgb(35, 35, 35);
+        border: 2px white;
     }
-    h2 {
-        display: flex;
-        text-align: center;
-        height: 40%;
-        margin-top: 50%;
-        margin-bottom: 30%;
-        color: white;
+    .circle {
+        border-radius: 35px;
+        height: 150px;
+        width: 150px;
+        background-color: rgba(35, 35, 35, 0);
+        border: 2px solid white;
     }
     
 </style>

@@ -4,33 +4,7 @@
         background-color: rgb(21, 21, 21);
     }
 
-    /* CUSTOM SCROLL BAR (Not in use here) */
-    .scroll_enabled {
-        overflow: scroll;
-        height: 100%; /* define your custom height */
-    }
     
-    .scroll_enabled::-webkit-scrollbar {
-        width: 5px;
-        
-    }
-    .scroll_enabled::-webkit-scrollbar-corner {
-        background: rgba(255, 0, 0, 0);
-    }
-    .scroll_enabled::-webkit-scrollbar-thumb {
-        background-color: rgb(111, 111, 111);
-        box-shadow: 0px 0px 2px rgb(150, 150, 150);
-        border-radius: 0px;
-        border: 1px solid rgba(254, 254, 254, 0);
-        background-clip: content-box;
-        min-width: 32px;
-        min-height: 32px;
-    }
-    .scroll_enabled::-webkit-scrollbar-track {
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    /* -- SCROLL BAR ENDS --*/
 
     .matrix {
         display: grid;
@@ -44,7 +18,8 @@
     .box {
         display: flex;
         color: rgb(255, 255, 255);
-        box-shadow: 5px 5px 10px  rgb(0, 0, 0);
+        user-select: none;
+        box-shadow: 2px 2px 2px  rgb(2, 2, 2);
         background-image: url("../assets/box-background.png");
         background-position: center;
         background-size:cover;
@@ -58,12 +33,47 @@
         justify-items: center;
         align-items: center;
         transform: scale(1);
-        border: 1px solid black;
-        transition: all 0.2s ease-in-out;
+        border: 1px solid rgb(19, 19, 19);
+        transition: transform 0.25s ease-in-out, border-bottom 0.6s linear, border-right 0.8s linear, border-top 1s linear, border-left 1.2s linear, border-radius 2s ease-out, box-shadow 0.75s ease-in-out;
     }
 
     .box:hover{
-        transform: scale(1.05);
-        transition: all 0.1s ease-in-out;
-        border: 1px solid rgb(79, 79, 79);
+        transform: scale(1.02);
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border: 1px solid rgb(176, 176, 176);
+        box-shadow: 0px 0px 5px rgb(160, 160, 160);
+        transition:  transform 0.25s ease-in-out, border 0.6s linear, border-radius 1s ease-out, box-shadow 0.25s ease-in-out;
     }
+
+    .box:active {
+        transform: scale(0.97);
+        transition: transform 0.1s linear;
+
+    }
+
+/* 
+@keyframes hoverAnim {
+    0%{
+        border-left: 1px solid rgb(79, 79, 79);
+        border-radius: 2px;
+    }   
+    34% {
+        border-left: 1px solid rgb(79, 79, 79);
+        border-top: 1px solid rgb(79, 79, 79);
+        border-radius: 4px;
+    }
+    68% {
+        border-top: 1px solid rgb(79, 79, 79);
+        border-left: 1px solid rgb(79, 79, 79);
+        border-right: 1px solid rgb(79, 79, 79);
+        border-radius: 6px;
+    }
+    100% {
+        border-right: 1px solid rgb(94, 94, 94);
+        border-top: 1px solid rgb(94, 94, 94);
+        border-left: 1px solid rgb(94, 94, 94);
+        border-bottom: 1px solid rgb(94, 94, 94);
+        border-radius: 8px;
+    }
+} */
