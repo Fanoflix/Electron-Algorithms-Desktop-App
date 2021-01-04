@@ -37,7 +37,6 @@ app.on('ready', () => {
     setTimeout( () => { // After 3 sec, show the main window amd close the loading window
 
         // SCREEN API
-        
         let display = screen.getPrimaryDisplay();
         let currentScreenWidth;
         currentScreenWidth = display.bounds.width;
@@ -63,7 +62,8 @@ app.on('ready', () => {
         // Setting mainWindow properties
         mainWindow.setMinimumSize(980, 900);
         mainWindow.setMaximumSize(980, 900);
-        mainWindow.setPosition(currentScreenWidth, 0) // this was one big pain to find out. mainWindow.center() did not work after setting max and min sizes. Had to use the screen API to find the width of the user's dispaly, then subtracted the window's width from it, then divided it by 2. And then use the mainWindow.setPosition(x, y[,animate]) function to manually set the screen's position. Bruh.
+        mainWindow.setPosition(currentScreenWidth, 0) // this was one big pain to find out. mainWindow.center() did not work after setting max and min sizes. Had to use the screen API to find the width of the user's display, then subtracted the window's width from it, then divided it by 2. And then used the mainWindow.setPosition(x, y[,animate]) function to manually set the screen's position. Bruh.
+
         // When user closes the main window, the app shuts down
         mainWindow.on('closed', () => {
             app.quit();
@@ -71,7 +71,7 @@ app.on('ready', () => {
 
         loadingWindow.close(); // This line must be the last line in the timeout function or every window will be closed (think why, future Ammar might forget)
 
-    }, 1000)
+    }, 6000)
     
     // Replace the default menu tabs on the top
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
