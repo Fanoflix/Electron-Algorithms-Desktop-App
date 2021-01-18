@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- "c2": ["mussabammar", "ammarmussab"],
+    "c3": ["mahadammar", "mahadammar"],
+    "c4": ["asdasd32321", "123ammar"],
+    "c5": ["barfoo23", "asdasfoobar"],
+    "c6": ["123456", "654321"],
+    "c7": ["mynameis", "siemanym"],
+    "c8": ["aabbccdd", "ddccbbaa"],
+    "c9": ["abcd", "efgh"],
+    "c10": ["atifbailed", "bailedatif"] -->
+    <ul>
+    </ul>
+</body>
+</html>
+
+<script>
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    var input = require('../../inputs/LCS.json')
+
+    //caching
+    const ul = document.querySelector('ul')
+    let choices;
+    var i = 1
+    input.forEach( choice => {
+        const li = document.createElement('li');
+        li.className = 'choice' + i;
+        i++;
+        li.innerHTML = choice.str1 + ' <br> ' + choice.str2;
+        ul.appendChild(li);
+    })
+
+    ul.addEventListener('click', (event) => {
+        if (event.target.className !== ul) {
+            if (event.target.className == 'choice1') {
+                console.log(input[0].str1, input[0].str2);
+            }
+            else if (event.target.className == 'choice2') {
+                console.log(input[1].str1, input[1].str2);
+            }
+            
+        }
+    })
+
+</script>
+
+<style>
+    body {
+        color: white;
+    }
+</style>
+
+
+

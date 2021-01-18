@@ -1,4 +1,4 @@
-function longestCommonSubsequence(set1, set2) {
+export default function longestCommonSubsequence(set1, set2) {
     // Init LCS matrix.
     const lcsMatrix = Array(set2.length + 1).fill(null).map(() => Array(set1.length + 1).fill(null));
   
@@ -51,10 +51,7 @@ function longestCommonSubsequence(set1, set2) {
       }
     }
   
-    var i;
-    for (i = 0 ; i < longestSequence.length ; i++) {
-        console.log(longestSequence[i]);
-    }
+    console.log(longestSequence);
     return longestSequence;
   }
-  longestCommonSubsequence("ABCCbbasdD", "AHasdbbASCD")
+  

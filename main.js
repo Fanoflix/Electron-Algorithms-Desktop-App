@@ -12,7 +12,6 @@ let mainWindow;
 let lcsWindow;
 
 
-
 app.on('ready', () => {
 
     // Making loading window
@@ -42,7 +41,6 @@ app.on('ready', () => {
         currentScreenWidth = display.bounds.width;
         currentScreenWidth -= 980;
         currentScreenWidth /= 2;
-        console.log(currentScreenWidth);
         // ==========================
 
 
@@ -59,6 +57,8 @@ app.on('ready', () => {
             pathname: path.join(__dirname, "./templates/index.html")
         }));
 
+
+        // ---------- UN COMMENT -----------
         // Setting mainWindow properties
         mainWindow.setMinimumSize(980, 900);
         mainWindow.setMaximumSize(980, 900);
@@ -71,13 +71,58 @@ app.on('ready', () => {
 
         loadingWindow.close(); // This line must be the last line in the timeout function or every window will be closed (think why, future Ammar might forget)
 
-    }, 6000)
+    }, 1000)
     
     // Replace the default menu tabs on the top
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
     Menu.setApplicationMenu(mainMenu);
 
 });
+
+// ==============  Create Input Window ==============
+ipcMain.on('createInput', (event, data) => {
+    console.log(data)
+    if (data == 'box LCS') {
+        LcsInputWindow = new BrowserWindow({
+            width: 500,
+            height: 600,
+            backgroundColor: '#171616',
+            opacity: 1,
+            title: "Longest Common Subsequence - Select Input",
+            webPreferences: {
+                nodeIntegration: true,
+            }
+        });
+
+        LcsInputWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/selectionTemplates/lcsInput.html")
+        }));
+
+    }
+    else if (data == 'box SCS') {
+        ScsInputWindow = new BrowserWindow({
+            width: 500,
+            height: 600,
+            backgroundColor: '#171616',
+            opacity: 1,
+            title: "Shortest Common Subsequence - Select Input",
+            webPreferences: {
+                nodeIntegration: true,
+            }
+        });
+
+        ScsInputWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/selectionTemplates/scsInput.html")
+        }));
+    }
+})
+
+// ==============  Run Algorithm  ==============
+
+
+
+
+
 
 // Menus are array of objects
 const mainMenuTemplate = [

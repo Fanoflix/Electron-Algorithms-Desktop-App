@@ -34,16 +34,16 @@
         align-items: center;
         transform: scale(1);
         border: 1px solid rgb(19, 19, 19);
-        transition: transform 0.25s ease-in-out, border-bottom 0.6s linear, border-right 0.8s linear, border-top 1s linear, border-left 1.2s linear, border-radius 2s ease-out, box-shadow 0.2s ease-in-out;
+        transition: transform 0.25s ease-in-out, border-bottom 0.6s linear, border-right 0.8s linear, border-top 1s linear, border-left 1.2s linear, border-radius 2s ease-out, box-shadow 0.25s ease-in-out;
     }
 
     .box:hover{
-        transform: scale(1.02);
+        transform: scale(1.025);
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border: 1px solid rgb(176, 176, 176);
-        box-shadow: 0px 0px 18px rgb(130, 130, 130);
-        transition:  transform 0.25s ease-in-out, border 0.8s linear, border-radius 1.2s ease-out, box-shadow 1.2s ease-in-out;
+        box-shadow: 0px 0px 15px rgb(130, 130, 130);
+        transition:  transform 0.25s ease-in-out, border 0.8s linear, border-radius 1.2s ease-out, box-shadow 0.8s ease-in-out;
     }
 
     .box:active {
@@ -51,29 +51,3 @@
         box-shadow: none;
         transition: transform 0.1s linear, box-shadow 0.1s ease-out;
     }
-
-/* 
-@keyframes hoverAnim {
-    0%{
-        border-left: 1px solid rgb(79, 79, 79);
-        border-radius: 2px;
-    }   
-    34% {
-        border-left: 1px solid rgb(79, 79, 79);
-        border-top: 1px solid rgb(79, 79, 79);
-        border-radius: 4px;
-    }
-    68% {
-        border-top: 1px solid rgb(79, 79, 79);
-        border-left: 1px solid rgb(79, 79, 79);
-        border-right: 1px solid rgb(79, 79, 79);
-        border-radius: 6px;
-    }
-    100% {
-        border-right: 1px solid rgb(94, 94, 94);
-        border-top: 1px solid rgb(94, 94, 94);
-        border-left: 1px solid rgb(94, 94, 94);
-        border-bottom: 1px solid rgb(94, 94, 94);
-        border-radius: 8px;
-    }
-} */
