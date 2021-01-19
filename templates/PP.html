@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+    </style>
+</head>
+<body class="scroll_enabled" >
+    
+    <ul class="container">
+        <h5 style="font-variant: small-caps; font-size: 15px;">select input</h5>
+    </ul>
+
+    <div class="results">
+        <p class="name"> Partition Problem </p>
+        <div class="answer"> 
+            <p style="color: rgb(41, 41, 41); font-size: 25px; font-weight: bold; font-variant: small-caps;">possibility</p> 
+            <p class="result"></p>
+        </div>
+    </div>
+
+    <div class="close">close</div>
+
+</body>
+</html>
+
+<script type="module">
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    var input = require('../inputs/LIS-MCM-PP.json'); // required LCS input data (JSON format)
+    import {PP} from '../functionality/algorithms/globally.js';
+    
+    // caching HTML references
+    const ul = document.querySelector('ul');
+    const result = document.querySelector('.result');
+    const close = document.querySelector('.close');
+
+    close.addEventListener('click', () => {
+        window.close();
+    });
+
+    // Getting strings for input from JSON file
+    var i = 1
+    input.forEach( choice => {
+        const p = document.createElement('p');
+        p.className = 'choice' + ' ' + 'c' + i;
+        i++;
+        p.innerHTML = choice.sample
+        ul.appendChild(p);
+    })
+
+    var answer;
+    ul.addEventListener('click', (event) => {
+        if (event.target.className !== ul) {
+            if (event.target.className == 'choice c1') {
+                answer = PP(input[0].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c2') {
+                answer = PP(input[1].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c3') {
+                answer = PP(input[2].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c4') {
+                answer = PP(input[3].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c5') {
+                answer = PP(input[4].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c6') {
+                answer = PP(input[5].sample)
+                result.innerHTML =answer;
+            }
+            else if (event.target.className == 'choice c7') {
+                answer = PP(input[6].sample)
+                result.innerHTML =answer;
+            }
+            else if (event.target.className == 'choice c8') {
+                answer = PP(input[7].sample)
+                result.innerHTML = answer;
+            }
+            else if (event.target.className == 'choice c9') {
+                answer = PP(input[8].sample)
+                result.innerHTML =  answer;
+            }
+            else if (event.target.className == 'choice c10') {
+                answer = PP(input[9].sample)
+                result.innerHTML =  answer;
+            }
+        }
+    })
+</script>
+
+<style>
+
+    /* Custom Scroll Bar */
+    .scroll_enabled {
+        overflow: scroll;
+        height: 100%; 
+    }
+    
+    .scroll_enabled::-webkit-scrollbar {
+        width: 5px;
+        
+    }
+    .scroll_enabled::-webkit-scrollbar-corner {
+        background: rgba(255, 0, 0, 0);
+    }
+    .scroll_enabled::-webkit-scrollbar-thumb {
+        background-color: rgb(111, 111, 111);
+        box-shadow: 0px 0px 2px rgb(150, 150, 150);
+        border-radius: 0px;
+        border: 1px solid rgba(254, 254, 254, 0);
+        background-clip: content-box;
+        min-width: 32px;
+        min-height: 32px;
+    }
+    .scroll_enabled::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    /* scrollbar end */
+    
+
+    body {
+        animation: visibility 1s;
+        color: rgb(118, 118, 118);
+        font-family: 'Baloo Da 2', cursive;
+        background-color: rgb(0, 0, 0);
+    }
+    .results {
+        opacity: 1;
+        box-shadow: 0px -1px white;;
+        position: absolute;
+        top: 0%;
+        left: 20%;
+        width: 70%;
+    }
+
+    h5 {
+        animation: flash 4s forwards;
+    }
+    @keyframes flash {
+        0% { text-shadow: 0px 0px 5px white;}
+        20% { text-shadow: 0px 0px 0px;}
+        40% { text-shadow: 0px 0px 5px white;}
+        60% { text-shadow: 0px 0px 0px;}
+        80% { text-shadow: 0px 0px 5px white;}
+        100% { text-shadow: 0px 0px 0px;}
+    }
+
+    @keyframes visibility {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .name {
+        font-variant-caps: all-small-caps;
+        color: white;
+        text-align: center;
+        font-size: 35px;
+        text-shadow: 0px 0px 5px rgb(255, 255, 255);
+    }
+    
+    .answer {
+        position: relative;
+        font-variant: small-caps;
+        font-size: 20px;
+        left: 15%;
+        top: 90px;
+        width: 70%;
+        text-align: center;
+    }
+
+    .container {
+        top: 6%;
+        width: 10%;
+        left: 0%;
+        position: absolute;
+    }
+
+    .choice {
+        box-shadow: inset 1px 0px 1px rgb(60, 60, 60);
+        color: gray;
+        font-size: 11px;
+        display: flex;
+        justify-content: left;
+        align-content: center;
+        margin-top: 1%;
+        padding: 5%;
+        background-image: linear-gradient(to right, rgb(0, 0, 0), black);
+        transition: transform 0.15s, box-shadow 0.75s, background-image 1s;
+    }
+
+    .choice:hover {
+        box-shadow: inset 3px 0px 1px rgb(60, 60, 60);
+        background-image: linear-gradient(to right, rgb(24, 24, 24), black);
+        cursor: pointer;
+        transform: translateX(6px);
+        transition: transform 0.1s, box-shadow 0.25s, background-image 0.25s;
+    }
+
+    .choice:active {
+        background-image: linear-gradient(to right, rgb(23, 23, 23), rgb(19, 19, 19));
+    }
+
+    .close {
+        font-variant: small-caps;
+        font-size: 24px;
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        width: 10%;
+        border: 1px solid white;
+        text-align: center;
+        text-justify: center;
+        cursor: pointer;
+        background-color: rgb(36, 19, 19);
+    }
+
+    .close:hover {
+        border: 1px solid rgb(101, 0, 0);
+        color: rgb(101, 0, 0);
+        background-color: rgb(0, 0, 0);
+    }
+
+    .close:active {
+        border: 1px solid white;
+        background-color: rgb(0, 0, 0);
+    }
+</style>

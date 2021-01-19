@@ -2,7 +2,6 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-
 const {app, BrowserWindow, Menu, ipcMain, screen} = electron;
 
 process.env.MODE_ENV = 'development';
@@ -10,8 +9,7 @@ process.env.MODE_ENV = 'development';
 // WINDOWS
 let loadingWindow;
 let mainWindow;
-let LcsInputWindow;
-let ScsInputWindow;
+let ExecutionWindow;
 
 
 app.on('ready', () => {
@@ -83,52 +81,78 @@ app.on('ready', () => {
 
 // ==============  Create Input Window ==============
 ipcMain.on('createInput', (event, data) => {
-    console.log(data)
+    ExecutionWindow = new BrowserWindow({
+        // width: 1000,
+        // height: 860,
+        backgroundColor: '#171616',
+        opacity: 1,
+        webPreferences: {
+            nodeIntegration: true,
+        }
+    });
+    ExecutionWindow.maximize();
+    
     if (data == 'box LCS') {
-        LcsInputWindow = new BrowserWindow({
-            width: 1000,
-            height: 860,
-            backgroundColor: '#171616',
-            opacity: 1,
-            title: "Longest Common Subsequence - Select Input",
-            webPreferences: {
-                nodeIntegration: true,
-            }
-        });
-
-        LcsInputWindow.loadURL(url.format({
-            pathname: path.join(__dirname, "./templates/selectionTemplates/lcsInput.html")
+        ExecutionWindow.title = "Longest Common Sub Sequence " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/LCS.html")
         }));
-
     }
     else if (data == 'box SCS') {
-        ScsInputWindow = new BrowserWindow({
-            width: 500,
-            height: 600,
-            backgroundColor: '#171616',
-            opacity: 1,
-            title: "Shortest Common Subsequence - Select Input",
-            webPreferences: {
-                nodeIntegration: true,
-            }
-        });
-
-        ScsInputWindow.loadURL(url.format({
-            pathname: path.join(__dirname, "./templates/selectionTemplates/scsInput.html")
+        ExecutionWindow.title = "Shortest Common Sub Sequence " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/SCS.html")
+        }));
+    }
+    else if (data == 'box LD') {
+        ExecutionWindow.title = "Levenshtein Distance " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/LD.html")
+        }));
+    }
+    else if (data == 'box LIS') {
+        ExecutionWindow.title = "Longest Increasing Subsequence " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/LIS.html")
+        }));
+    }
+    else if (data == 'box MCM') {
+        ExecutionWindow.title = "Matrix Chain Multiplication " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/MCM.html")
+        }));
+    }
+    else if (data == 'box KP') {
+        ExecutionWindow.title = "0/1 Knapsack Problem " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/KP.html")
+        }));
+    }
+    else if (data == 'box PP') {
+        ExecutionWindow.title = "Partition Problem " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/PP.html")
+        }));
+    }
+    else if (data == 'box RCP') {
+        ExecutionWindow.title = "Rod Cutting Problem " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/RCP.html")
+        }));
+    }
+    else if (data == 'box CCM') {
+        ExecutionWindow.title = "Coin-change Problem " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/CCM.html")
+        }));
+    }
+    else if (data == 'box WBP') {
+        ExecutionWindow.title = "Word Break Problem " + "- Select Input";
+        ExecutionWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "./templates/WBP.html")
         }));
     }
 });
-
-// // ==============  Run Algorithm  ==============
-// ipcMain.on('executeAlgo', (event, data) => {
-//     console.log(data.name + ' -- str1: ' + data.str1 + ' -- str2: ' + data.str2 );
-//     if (data.name == 'LCS') {
-//         LcsInputWindow.webContents.send('LCS', data)
-//     }
-// });
-
-
-
 
 // Menus are array of objects
 const mainMenuTemplate = [
