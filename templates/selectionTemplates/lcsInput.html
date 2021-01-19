@@ -2,56 +2,214 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+    </style>
 </head>
-<body>
-    <!-- "c2": ["mussabammar", "ammarmussab"],
-    "c3": ["mahadammar", "mahadammar"],
-    "c4": ["asdasd32321", "123ammar"],
-    "c5": ["barfoo23", "asdasfoobar"],
-    "c6": ["123456", "654321"],
-    "c7": ["mynameis", "siemanym"],
-    "c8": ["aabbccdd", "ddccbbaa"],
-    "c9": ["abcd", "efgh"],
-    "c10": ["atifbailed", "bailedatif"] -->
-    <ul>
+<body class="scroll_enabled" >
+    
+    <ul class="container">
+        <h5 style="font-variant: small-caps; font-size: 15px;">select input</h5>
     </ul>
+
+    <div class="results">
+        <p class="name"> Longest Common Subsequence</p>
+        <div class="answer"> 
+            <p style="color: rgb(41, 41, 41); font-size: 25px; font-weight: bold; font-variant: small-caps;">result</p> 
+            <p class="result"></p>
+        </div>
+    </div>
+
 </body>
 </html>
 
-<script>
+<script type="module">
     const electron = require('electron');
     const {ipcRenderer} = electron;
-    var input = require('../../inputs/LCS.json')
+    var input = require('../../inputs/LCS.json'); // required LCS input data (JSON format)
+    import {LCS} from '../../functionality/algorithms/globally.js';
+    
+    // caching HTML references
+    const ul = document.querySelector('ul');
+    const result = document.querySelector('.result');
 
-    //caching
-    const ul = document.querySelector('ul')
-    let choices;
+    // Getting strings for input from JSON file
     var i = 1
     input.forEach( choice => {
-        const li = document.createElement('li');
-        li.className = 'choice' + i;
+        const p = document.createElement('p');
+        p.className = 'choice' + ' ' + 'c' + i;
         i++;
-        li.innerHTML = choice.str1 + ' <br> ' + choice.str2;
-        ul.appendChild(li);
+        p.innerHTML = choice.str1 + ' <br> ' + choice.str2;
+        ul.appendChild(p);
     })
 
+    var data = {
+        str1: '',
+        str2: '',
+    }
     ul.addEventListener('click', (event) => {
         if (event.target.className !== ul) {
-            if (event.target.className == 'choice1') {
-                console.log(input[0].str1, input[0].str2);
+            if (event.target.className == 'choice c1') {
+                data.str1 = input[0].str1;
+                data.str2 = input[0].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
             }
-            else if (event.target.className == 'choice2') {
-                console.log(input[1].str1, input[1].str2);
+            else if (event.target.className == 'choice c2') {
+                data.str1 = input[1].str1;
+                data.str2 = input[1].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
             }
-            
+            else if (event.target.className == 'choice c3') {
+                data.str1 = input[2].str1;
+                data.str2 = input[2].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c4') {
+                data.str1 = input[3].str1;
+                data.str2 = input[3].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c5') {
+                data.str1 = input[4].str1;
+                data.str2 = input[4].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c6') {
+                data.str1 = input[5].str1;
+                data.str2 = input[5].str2
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c7') {
+                data.str1 = input[6].str1;
+                data.str2 = input[6].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c8') {
+                data.str1 = input[7].str1;
+                data.str2 = input[7].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c9') {
+                data.str1 = input[8].str1;
+                data.str2 = input[8].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
+            else if (event.target.className == 'choice c10') {
+                data.str1 = input[9].str1;
+                data.str2 = input[9].str2;
+                result.innerHTML = LCS(data.str1, data.str2)
+            }
         }
     })
-
 </script>
 
 <style>
+
+    /* Custom Scroll Bar */
+    .scroll_enabled {
+        overflow: scroll;
+        height: 100%; 
+    }
+    
+    .scroll_enabled::-webkit-scrollbar {
+        width: 5px;
+        
+    }
+    .scroll_enabled::-webkit-scrollbar-corner {
+        background: rgba(255, 0, 0, 0);
+    }
+    .scroll_enabled::-webkit-scrollbar-thumb {
+        background-color: rgb(111, 111, 111);
+        box-shadow: 0px 0px 2px rgb(150, 150, 150);
+        border-radius: 0px;
+        border: 1px solid rgba(254, 254, 254, 0);
+        background-clip: content-box;
+        min-width: 32px;
+        min-height: 32px;
+    }
+    .scroll_enabled::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    /* scrollbar end */
+    
+
     body {
+        animation: visibility 1s;
+        color: rgb(118, 118, 118);
+        font-family: 'Baloo Da 2', cursive;
+        background-color: rgb(0, 0, 0);
+    }
+    .results {
+        opacity: 1;
+        box-shadow: 0px -1px white;;
+        position: absolute;
+        top: 0%;
+        left: 20%;
+        width: 70%;
+    }
+
+    h5 {
+        animation: flash 4s forwards;
+    }
+    @keyframes flash {
+        0% { text-shadow: 0px 0px 5px white;}
+        20% { text-shadow: 0px 0px 0px;}
+        40% { text-shadow: 0px 0px 5px white;}
+        60% { text-shadow: 0px 0px 0px;}
+        80% { text-shadow: 0px 0px 5px white;}
+        100% { text-shadow: 0px 0px 0px;}
+    }
+
+    @keyframes visibility {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .name {
+        font-variant-caps: all-small-caps;
         color: white;
+        text-align: center;
+        font-size: 35px;
+        text-shadow: 0px 0px 5px rgb(255, 255, 255);
+    }
+    
+    .answer {
+        position: relative;
+        left: 10%;
+        top: 90px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .container {
+        top: 6%;
+        width: 10%;
+        left: 0%;
+        position: absolute;
+    }
+
+    .choice {
+        box-shadow: inset 1px 0px 1px rgb(60, 60, 60);
+        color: gray;
+        font-size: 12px;
+        display: flex;
+        justify-content: left;
+        align-content: center;
+        margin-top: 1%;
+        padding: 5%;
+        transition: transform 0.15s, box-shadow 0.75s;
+    }
+
+    .choice:hover {
+        box-shadow: inset 3px 0px 1px rgb(60, 60, 60);
+        background-color: rgb(19, 19, 19);
+        cursor: pointer;
+        transform: translateX(10px);
+        transition: transform 0.3s, box-shadow 0.25s;
+    }
+
+    .choice:active {
+        background-color: rgb(14, 14, 14);
     }
 </style>
 

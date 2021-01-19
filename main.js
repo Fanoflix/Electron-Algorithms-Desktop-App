@@ -2,6 +2,7 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
+
 const {app, BrowserWindow, Menu, ipcMain, screen} = electron;
 
 process.env.MODE_ENV = 'development';
@@ -9,7 +10,8 @@ process.env.MODE_ENV = 'development';
 // WINDOWS
 let loadingWindow;
 let mainWindow;
-let lcsWindow;
+let LcsInputWindow;
+let ScsInputWindow;
 
 
 app.on('ready', () => {
@@ -84,8 +86,8 @@ ipcMain.on('createInput', (event, data) => {
     console.log(data)
     if (data == 'box LCS') {
         LcsInputWindow = new BrowserWindow({
-            width: 500,
-            height: 600,
+            width: 1000,
+            height: 860,
             backgroundColor: '#171616',
             opacity: 1,
             title: "Longest Common Subsequence - Select Input",
@@ -115,11 +117,15 @@ ipcMain.on('createInput', (event, data) => {
             pathname: path.join(__dirname, "./templates/selectionTemplates/scsInput.html")
         }));
     }
-})
+});
 
-// ==============  Run Algorithm  ==============
-
-
+// // ==============  Run Algorithm  ==============
+// ipcMain.on('executeAlgo', (event, data) => {
+//     console.log(data.name + ' -- str1: ' + data.str1 + ' -- str2: ' + data.str2 );
+//     if (data.name == 'LCS') {
+//         LcsInputWindow.webContents.send('LCS', data)
+//     }
+// });
 
 
 

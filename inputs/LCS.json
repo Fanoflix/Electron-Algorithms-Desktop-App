@@ -6,6 +6,38 @@
     {
         "str1":"mussabammar", 
         "str2":"ammarmussab"
+    },
+    {
+        "str1":"mahadammar", 
+        "str2":"mahadammarmmarmaamhmamdar"
+    },
+    {
+        "str1":"asdasd32321", 
+        "str2":"123ammar"
+    },
+    {
+        "str1":"barfoo23", 
+        "str2":"asdasfoobar"
+    },
+    {
+        "str1":"1213141516", 
+        "str2":"65242321"
+    },
+    {
+        "str1":"mynameis", 
+        "str2":"siemanym"
+    },
+    {
+        "str1":"aabbccdd", 
+        "str2":"ddccbbaa"
+    },
+    {
+        "str1":"abcdefghijklmnopqrst", 
+        "str2":"tsbad"
+    },
+    {
+        "str1":"aamtmiafr", 
+        "str2":"rfaimtmaa"
     }
 ]
 

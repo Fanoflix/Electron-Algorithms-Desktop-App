@@ -51,7 +51,6 @@ export default function longestCommonSubsequence(set1, set2) {
       }
     }
   
-    console.log(longestSequence);
     return longestSequence;
   }
   

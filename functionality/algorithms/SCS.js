@@ -49,7 +49,5 @@ export default function shortestCommonSupersequence(set1, set2) {
   if (setIndex2 < set2.length) {
     supersequence = supersequence.concat(set2.slice(setIndex2));
   }
-  
-  console.log(supersequence);
   return supersequence;
 }
