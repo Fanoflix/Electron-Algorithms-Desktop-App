@@ -17,6 +17,7 @@
         <div class="answer"> 
             <p style="color: rgb(41, 41, 41); font-size: 25px; font-weight: bold; font-variant: small-caps;">result</p> 
             <p class="result"></p>
+            <p class="time"></p>
         </div>
     </div>
 
@@ -35,6 +36,7 @@
     const ul = document.querySelector('ul');
     const result = document.querySelector('.result');
     const close = document.querySelector('.close');
+    const time = document.querySelector('.time');
 
     close.addEventListener('click', () => {
         window.close();
@@ -55,44 +57,53 @@
         if (event.target.className !== ul) {
             if (event.target.className == 'choice c1') {
                 answer = RCP(input[0].price, input[0].maxLength)
-                console.log(answer)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c2') {
                 answer = RCP(input[1].price, input[1].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c3') {
                 answer = RCP(input[2].price, input[2].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c4') {
                 answer = RCP(input[3].price, input[3].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c5') {
                 answer = RCP(input[4].price, input[4].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c6') {
                 answer = RCP(input[5].price, input[5].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c7') {
                 answer = RCP(input[6].price, input[6].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c8') {
                 answer = RCP(input[7].price, input[7].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c9') {
                 answer = RCP(input[8].price, input[8].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c10') {
                 answer = RCP(input[9].price, input[9].maxLength)
-                result.innerHTML = 'Maximum Profit: ' + answer;
+                result.innerHTML = 'Maximum Profit: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
         }
     })
@@ -205,7 +216,7 @@
     }
 
     .choice:active {
-        background-image: linear-gradient(to right, rgb(23, 23, 23), rgb(19, 19, 19));
+        background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
     }
 
     .close {

@@ -1,4 +1,9 @@
+const performance = require('perf_hooks').performance;
+
 export default function MatrixChainMultiplication(p, n) {
+
+  let startTime = performance.now();
+
   let matrix = Array(n)
     .fill(null)
     .map(() => Array(n).fill(0));
@@ -17,5 +22,13 @@ export default function MatrixChainMultiplication(p, n) {
       }
     }
   }
-  return matrix[1][n - 1];
+  
+  let endTime = performance.now();
+  let timeTaken = endTime-startTime;
+  timeTaken = timeTaken/1000;
+
+  return {
+    answer: matrix[1][n - 1],
+    time: timeTaken
+  };
 }

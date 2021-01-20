@@ -17,6 +17,7 @@
         <div class="answer"> 
             <p style="color: rgb(41, 41, 41); font-size: 25px; font-weight: bold; font-variant: small-caps;">result</p> 
             <p class="result"></p>
+            <p class="time"></p>
         </div>
     </div>
 
@@ -35,6 +36,7 @@
     const ul = document.querySelector('ul');
     const result = document.querySelector('.result');
     const close = document.querySelector('.close');
+    const time = document.querySelector('.time');
 
     close.addEventListener('click', () => {
         window.close();
@@ -55,50 +57,67 @@
         if (event.target.className !== ul) {
             if (event.target.className == 'choice c1') {
                 answer = CCM(input[0].desiredchange, input[0].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;                
             }
             else if (event.target.className == 'choice c2') {
                 answer = CCM(input[1].desiredchange, input[1].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c3') {
                 answer = CCM(input[2].desiredchange, input[2].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c4') {
                 answer = CCM(input[3].desiredchange, input[3].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c5') {
                 answer = CCM(input[4].desiredchange, input[4].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c6') {
                 answer = CCM(input[5].desiredchange, input[5].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c7') {
                 answer = CCM(input[6].desiredchange, input[6].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c8') {
                 answer = CCM(input[7].desiredchange, input[7].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c9') {
                 answer = CCM(input[8].desiredchange, input[8].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c10') {
                 answer = CCM(input[9].desiredchange, input[9].coin)
-                result.innerHTML = 'Minimum coins needed: ' + answer;
+                result.innerHTML = 'Minimum coins needed: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
         }
     })
 </script>
 
 <style>
-
+    
+    .time {
+        opacity: 1;
+        position: absolute;
+        top: 80%;
+        left: 15%;
+        width: 70%;
+    }
     /* Custom Scroll Bar */
     .scroll_enabled {
         overflow: scroll;
@@ -204,7 +223,7 @@
     }
 
     .choice:active {
-        background-image: linear-gradient(to right, rgb(23, 23, 23), rgb(19, 19, 19));
+        background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
     }
 
     .close {

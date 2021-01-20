@@ -1,4 +1,8 @@
+const performance = require('perf_hooks').performance;
 export default function RodCutting(prices, rLen) {
+    let startTime = performance.now();
+
+
   //define base on rod length and its revenue
   var r = [];
   r[0] = 0;
@@ -15,6 +19,15 @@ export default function RodCutting(prices, rLen) {
       }
       r[i] = currentMaxRevenue;
   }
+
+  let endTime = performance.now();
+  let timeTaken = endTime-startTime;
+  timeTaken = timeTaken/1000;
+
+
   //finally return the max rev
-  return r[rLen];
+  return {
+      answer: r[rLen],
+      time: timeTaken
+    };
 }

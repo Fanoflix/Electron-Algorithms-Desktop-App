@@ -1,13 +1,35 @@
+const performance = require('perf_hooks').performance;
+
 export default function wordBreak(s, wordDict) {
   var dp = Array(s.length);
   var map = {};
   var res = [];
 
+  let startTime = performance.now();
+
   for (var i = 0; i < wordDict.length; i++) {
     map[wordDict[i]] = true;
   }
 
-  return find(s, map, dp, 0);
+  let result = find(s, map, dp, 0);
+
+  let endTime = performance.now();
+  let timeTaken = endTime-startTime;
+  timeTaken = timeTaken/1000;
+
+  if (result.length !== 0 ) {
+    return {
+      answer : result,
+      time : timeTaken
+    }
+  }
+  else { 
+    return {
+      answer : 'Cannot break Word',
+      time : timeTaken
+    }
+  }
+  
 };
 
 var find = function (s, map, dp, index) {
@@ -33,4 +55,5 @@ var find = function (s, map, dp, index) {
   }
 
   return dp[index];
+  
 };

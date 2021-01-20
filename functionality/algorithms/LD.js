@@ -1,4 +1,8 @@
+const performance = require('perf_hooks').performance;
+
 export default function levenshteinDistance(a, b) {
+  let startTime = performance.now();
+
   const distanceMatrix = Array(b.length + 1)
     .fill(null)
     .map(() => Array(a.length + 1).fill(null));
@@ -20,5 +24,12 @@ export default function levenshteinDistance(a, b) {
     }
   }
 
-  return distanceMatrix[b.length][a.length];
+  let endTime = performance.now();
+  let timeTaken = endTime-startTime;
+  timeTaken = timeTaken/1000;
+
+  return {
+    answer:  distanceMatrix[b.length][a.length],
+    time: timeTaken
+  };
 }

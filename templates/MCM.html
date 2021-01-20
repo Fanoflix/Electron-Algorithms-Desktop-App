@@ -17,6 +17,7 @@
         <div class="answer"> 
             <p style="color: rgb(41, 41, 41); font-size: 25px; font-weight: bold; font-variant: small-caps;">result</p> 
             <p class="result"></p>
+            <p class="time"></p>
         </div>
     </div>
 
@@ -35,6 +36,7 @@
     const ul = document.querySelector('ul');
     const result = document.querySelector('.result');
     const close = document.querySelector('.close');
+    const time = document.querySelector('.time');
 
     close.addEventListener('click', () => {
         window.close();
@@ -55,43 +57,53 @@
         if (event.target.className !== ul) {
             if (event.target.className == 'choice c1') {
                 answer = MCM(input[0].sample, input[0].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c2') {
                 answer = MCM(input[1].sample, input[1].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c3') {
                 answer = MCM(input[2].sample, input[2].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c4') {
                 answer = MCM(input[3].sample, input[3].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c5') {
                 answer = MCM(input[4].sample, input[4].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c6') {
                 answer = MCM(input[5].sample, input[5].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c7') {
                 answer = MCM(input[6].sample, input[6].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c8') {
                 answer = MCM(input[7].sample, input[7].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c9') {
                 answer = MCM(input[8].sample, input[8].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
             else if (event.target.className == 'choice c10') {
                 answer = MCM(input[9].sample, input[9].sample.length)
-                result.innerHTML = 'Operations: ' + answer;
+                result.innerHTML = 'Operations: ' + answer.answer;
+                time.innerHTML = 'Time Taken: ' + answer.time;
             }
         }
     })
@@ -204,7 +216,7 @@
     }
 
     .choice:active {
-        background-image: linear-gradient(to right, rgb(23, 23, 23), rgb(19, 19, 19));
+        background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
     }
 
     .close {
