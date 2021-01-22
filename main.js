@@ -1,10 +1,11 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
+const { ipcRenderer } = require('electron');
 
 const {app, BrowserWindow, Menu, ipcMain, screen} = electron;
 
-process.env.MODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 
 // WINDOWS
 let loadingWindow;
@@ -17,7 +18,7 @@ app.on('ready', () => {
     // Making loading window
     loadingWindow = new BrowserWindow({
         width: 320,
-        height: 370,
+        height: 450,
         frame: false,
         transparent: true,
         webPreferences: {
@@ -57,6 +58,9 @@ app.on('ready', () => {
             pathname: path.join(__dirname, "./templates/index.html")
         }));
 
+        mainWindow.on('closed', () => {
+            app.quit();
+        });
 
         // ---------- UN COMMENT -----------
         // Setting mainWindow properties
@@ -70,7 +74,7 @@ app.on('ready', () => {
         });
 
         loadingWindow.close(); // This line must be the last line in the timeout function or every window will be closed (think why, future Ammar might forget)
-
+        loadingWindow = null;
     }, 3000)
     
     // Replace the default menu tabs on the top
@@ -152,8 +156,15 @@ ipcMain.on('createInput', (event, data) => {
             pathname: path.join(__dirname, "./templates/WBP.html")
         }));
     }
-});
+    else if (data == 'box close') {
+        app.quit();
+    }
 
+    ExecutionWindow.on('closed', () =>{
+        ExecutionWindow = null;
+    })
+
+});
 // Menus are array of objects
 const mainMenuTemplate = [
     {
@@ -170,17 +181,6 @@ const mainMenuTemplate = [
                 }
             }
         ],
-    },
-    {
-        label: 'Info',
-        submenu: [
-            {
-                label: 'About',
-                click() {
-                    // Show information about author
-                }
-            }
-        ]
     }
 ];
 

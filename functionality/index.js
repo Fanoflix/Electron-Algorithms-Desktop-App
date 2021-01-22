@@ -1,3 +1,4 @@
+const { app } = require('electron');
 const electron = require('electron');
 const {ipcRenderer} = electron;
 

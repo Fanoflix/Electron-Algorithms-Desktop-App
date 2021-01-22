@@ -5,27 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js" integrity="sha512-E378bwaeZf1nwXeJGIwTB58A5gPt5jFU3u6aTGja4ZdRFJeo/N/REKnBgNZOZlH6JdnOPO98vg2AnSGaNfCMFQ==" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+    </style>
 </head>
 <body>
     <div class="container">
+        <p style="color: white; color: rgb(255, 255, 255);
+        font-family: 'Baloo Da 2', cursive; font-variant: small-caps; font-weight: bold; font-size: 30px" >Algorithms</p> 
         <div class="circle"></div>
-        <div class="circle"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
     </div>
 </body>
 
 <script>
     
     anime({
-        targets: '.circle',
-        rotate: 70,
+        targets: '.circle', 
+        rotate: 120,
         duration: 1000,
         delay: 200,
+        direction: 'alternate',
+        loop: true
+      });
+
+      anime({
+        targets: '.circle2', 
+        rotate: 110,
+        duration: 800,
+        delay: 400,
+        direction: 'alternate',
+        loop: true
+      });
+      anime({
+        targets: '.circle3', 
+        rotate: 100,
+        duration: 600,
+        delay: 600,
         direction: 'alternate',
         loop: true
       });
 </script>
 
 <style>
+    .circle2 {
+        position: absolute;
+        top: 60%;
+        left: 30%;
+        border-radius: 40%;
+        text-align: center;
+        height: 90px;
+        width: 90px;
+        background-color: rgba(35, 35, 35, 0);
+        border: 2px solid white;
+    }
+    .circle3 {
+        position: absolute;
+        top: 62%;
+        left: 35%;
+        border-radius: 40%;
+        text-align: center;
+        height: 45px;
+        width: 45px;
+        background-color: rgba(35, 35, 35, 0);
+        border: 2px solid white;
+    }
+    .circle {
+        border-radius: 40%;
+        text-align: center;
+        height: 150px;
+        width: 150px;
+        background-color: rgba(35, 35, 35, 0);
+        border: 2px solid white;
+    }
+
     html, body {
         height: 100%;
         overflow: hidden;
@@ -47,13 +101,6 @@
         justify-items: center;
         background-color: rgb(35, 35, 35);
         border: 2px white;
-    }
-    .circle {
-        border-radius: 35px;
-        height: 150px;
-        width: 150px;
-        background-color: rgba(35, 35, 35, 0);
-        border: 2px solid white;
     }
 </style>
 </html>
