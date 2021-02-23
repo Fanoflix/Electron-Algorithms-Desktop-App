@@ -75,7 +75,7 @@ app.on('ready', () => {
 
         loadingWindow.close(); // This line must be the last line in the timeout function or every window will be closed (think why, future Ammar might forget)
         loadingWindow = null;
-    }, 3000)
+    }, 7000)
     
     // Replace the default menu tabs on the top
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
